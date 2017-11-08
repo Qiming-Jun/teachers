@@ -11,6 +11,7 @@ import java.sql.Connection;
 
 public class DBConnection  
 {  
+//  此段只在本地服务器使用  
     private String dbDriver="com.mysql.jdbc.Driver";   
     private String dbUrl="jdbc:mysql://localhost:3306/TeacherManage?characterEncoding=utf8";//根据实际情况变化  
     private String dbUser="root";  
