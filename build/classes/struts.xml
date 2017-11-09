@@ -6,8 +6,8 @@
 
 	<package name="student" extends="struts-default">
 		<action name="userlogin" class="student.UserLogin">
-			<result name="STUDENT">studentIndex.jsp</result>
-			<result name="TEACHER">teacherIndex.jsp</result>
+			<result name="STUDENT">/Student/homepage.jsp</result>
+			<result name="TEACHER">/Teacher/homepage.jsp</result>
 			<result name="IDNOTEXIST">fail.jsp</result>
 			<result name="ERRORPASSWORD">fail.jsp</result>
 			<result name="Fail">fail.jsp</result>

@@ -48,43 +48,45 @@ public class UserLogin {
     
 	public String execute() throws Exception {
 		DBConnection connect = new DBConnection();
-		List<String> passwordList = new LinkedList<String>();
+		List<String> StuInf = new LinkedList<String>();
+		List<String> TecInf = new LinkedList<String>();
+		
 		
 	    if(usertype.equals("student")){
-	    	String sql = "select password from Student where StuID=\"" + username + "\"";
+	    	String sql = "select * from Student where StuID=\"" + username + "\"";
 	    	System.out.println(sql);
 		//    Statement stmt = connect.createStatement();
-	    	passwordList = connect.select(sql);
+	    	StuInf = connect.select(sql);
 	    	
-	    	if(passwordList.size()==0) {
+	    	if(StuInf.size()==0) {
 	    		return "IDNOTEXIST";
 	    	}
 	    	
-	    	if(passwordList.get(0).equals(password)) {
-	    		session.setAttribute("StuID", username);
+	    	if(StuInf.get(7).equals(password)) {		//password在Student表中的第七列
+	    		session.setAttribute("StuID", StuInf.get(0));
+	    		session.setAttribute("StuInf", StuInf);
 	    		return "STUDENT";
 	    	}else {
 	    		return "ERRORPASSWORD";
 	    	}
 	    }
 	    else if(usertype.equals("teacher")) {
-            String sql = "select password from Teacher where ID=\"" + username + "\"";
-	    	
+	    	String sql = "select * from Teaccher where TecID=\"" + username + "\"";
 	    	System.out.println(sql);
 		//    Statement stmt = connect.createStatement();
-	    	passwordList = connect.select(sql);
+	    	TecInf = connect.select(sql);
 	    	
-	    	if(passwordList.size()==0) {
+	    	if(TecInf.size()==0) {
 	    		return "IDNOTEXIST";
 	    	}
 	    	
-	    	if(passwordList.get(0).equals(password)) {
-	    		session.setAttribute("StuID", username);
-	    		return "TEACHER";
+	    	if(TecInf.get(7).equals(password)) {		//password在Student表中的第七列
+	    		session.setAttribute("TecID", TecInf.get(0));
+	    		session.setAttribute("TecInf", TecInf);
+	    		return "TECAHER";
 	    	}else {
 	    		return "ERRORPASSWORD";
-	    	} 
-	    	
+	    	}
 	    }
 	    else
 	    	return "Faild";

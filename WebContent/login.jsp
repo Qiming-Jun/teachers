@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="right">
- <h1 class="margin" style="margin:150px 0px 0px 140px">GLSZ教师信息管理系统</h1>
+ <h1 class="margin" style="margin:150px 0px 0px 140px">教师信息管理系统</h1>
 <div style="margin:150px 0px 0px 140px; float:left">
     <form name="loginform"  method="post" action="userlogin" >
 

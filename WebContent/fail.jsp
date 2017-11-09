@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>教师引导界面</title>
+<title>登陆错误界面</title>
 </head>
 <body>
 
