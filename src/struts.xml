@@ -11,6 +11,7 @@
             <result name="TECAHER">/teacher_one.jsp</result>
             <result name="STUDENT">/student_one.jsp</result>
             <result name="error">/login_inter.jsp</result>
+			<result name="Fail">fail.jsp</result>
         </action>
 		<action name="modStu" class="tutorial.exec" method="modStuInf">
             <result name="success">student_information.jsp</result>
