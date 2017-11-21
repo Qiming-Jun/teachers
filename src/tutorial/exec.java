@@ -169,6 +169,7 @@ public class exec extends ActionSupport{
 		
 	}
 	
+	
 	public String modStuInfTmp() {
 		mysql connect = new mysql();
 		
@@ -235,8 +236,6 @@ public class exec extends ActionSupport{
 			return "fail";
 		}
 		
-//		System.out.println(username+toJsp+" test "+rows);
-//		return "sucess";
 	}
 	
 
