@@ -35,5 +35,16 @@
             <result name="success">information_homepage.jsp</result>
         </action>
 
+		 <action name="Search" class="tutorial.exec" method="searchTmp">
+        	<result name="success">search_teacher.jsp</result>
+        </action>
+        <action name="SearchTec" class="tutorial.exec" method="searchTec">
+        	<result name="success">teacherinf_forstu.jsp</result>
+        	<result name="Fail">fail.jsp</result>
+        </action>     
+		
+		<action name="lettersearch" class="tutorial.exec" method="searchTecLetter">
+            <result name="success">search_resultone.jsp</result>
+        </action>
     </package>
 </struts>

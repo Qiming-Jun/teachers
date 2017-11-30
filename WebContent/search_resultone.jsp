@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html style="height:100%;">
 <head>
@@ -13,6 +14,15 @@
 <link rel="stylesheet" href="http://homepage.hit.edu.cn/web/css/shouyestyle.css">
 <link rel="stylesheet" href="http://homepage.hit.edu.cn/web/css/font-style.css">
 <link rel="stylesheet" href="http://homepage.hit.edu.cn/web/css/flexslider.css" type="text/css">
+
+<link href="web/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="web/css/css.css" rel="stylesheet" type="text/css">
+<link href="web/css/shouye-style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="web/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="web/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="web/js/jquery.scrollTo-1.4.2-min.js"></script> 
+<script type="text/javascript" src="web/js/waypoints.min.js"></script>
 
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -44,7 +54,7 @@ html,body{
 character  =  new  String(request.getParameter("character").getBytes("ISO-8859-1"), "utf-8");
 System.out.println(character);%-->
 <span style="position:relative;top:10px;left:700px;font-size:18pt;color:white;">
-您好,<s:property value="username" />!
+您好,<!--%=character%-->!
 </span>
 <a href="login_inter.jsp">
 <img src="exit.gif" width="30" height="30" style="position:relative;top:10px;left:700px;"/>
@@ -55,49 +65,14 @@ System.out.println(character);%-->
 </h1>
 </div>
 
-<div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="carousel slide" id="carousel-692502">
-				<ol class="carousel-indicators">
-					<li class="active" data-slide-to="0" data-target="#carousel-692502">
-					</li>
-					<li data-slide-to="1" data-target="#carousel-692502">
-					</li>
-					<li data-slide-to="2" data-target="#carousel-692502">
-					</li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="item active">
-						<img alt="" src="pictone.jpg" />
-					</div>
-					<div class="item">
-						<img alt="" src="picttwo.jpg" />
-					</div>
-					<div class="item">
-						<img alt="" src="picthree.jpg" />
-					</div>
-				</div> <a class="left carousel-control" href="#carousel-692502" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-692502" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-			</div>
-		</div>
-	</div>
-</div>
+<div style="width:100%;min-height:700px;height:auto;margin:0px;padding:0px;">
 
-<div style="width=100%;height:300px;margin:0px;padding:0px;background-color:rgba(240,255,255,1);">
+<div style="width:60%;min-height:600px;height:auto;margin:0px;padding:0px;position:relative;top:30px;left:280px;background-color:white;">
 
-      <div style="margin:0px;padding:0px;width:100%;height:165px;">
-        <div class="neirong2_box2_box" style="width:70%;position:relative;top:30px;">
-          <span>查找教师： </span>
-	        <form action="SearchTec.action?username=<s:property value="username" />" name="form1" method="get">
-	          <input id="search" name="search" type="text" class="wenbenkuang" style="width:260px;position:relative;left:400px;"></input>
-	          <input type="hidden" name="username" id=username value=<s:property value="username" />>
-	          <input type=submit value="搜  索" class="sousuoanniu" style="width:50px;height:auto;font-size:inherit;position:relative;top:-5px;"></input>
-	        </form>
-        </div>
-		<div class="neirong2_box2_box" style="width:70%;position:relative;top:35px;">
-          <span>姓氏字母： </span>
+<div class="neirong2_box2_box" style="width:100%;position:relative;top:0px;left:10px;">
+          <span style="font-size:initial;position:relative;top:5px;">姓氏字母： </span>
           <ul>
-            <li><a href="lettersearch.action?letter=a&username=<s:property value="username" />">A</a></li>
+           <li><a href="lettersearch.action?letter=a&username=<s:property value="username" />">A</a></li>
             <li><a href="lettersearch.action?letter=b&username=<s:property value="username" />">B</a></li>
             <li><a href="lettersearch.action?letter=c&username=<s:property value="username" />">C</a></li>
             <li><a href="lettersearch.action?letter=d&username=<s:property value="username" />">D</a></li>
@@ -125,12 +100,38 @@ System.out.println(character);%-->
             <li><a href="lettersearch.action?letter=z&username=<s:property value="username" />">Z</a></li>
           </ul>
         </div>
+		
+		
+<center><hr style="margin:0px;padding:0px;width:98%;height:3px;border:none;border-top:3px double black;positive:absolute;top:600px;"/></center>
+
+<div class="neirong2_box2_box" style="width:100%;position:relative;top:0px;left:10px;">
+          <span style="font-size:initial;position:relative;left:400px;">查找教师： </span>
+          <form action="SearchTec.action?username=<s:property value="username" />" name="form1" method="get">
+          <input id="search" name="search" type="text" class="wenbenkuang" style="width:260px;position:relative;left:400px;"></input>
+          <input type="hidden" name="username" id=username value=<s:property value="username" />>
+          <input type=submit value="搜  索" class="sousuoanniu" style="width:50px;height:auto;font-size:inherit;position:relative;top:-5px;"></input>
+        </form>
         </div>
-        <center><hr style="margin:0px;padding:0px;width:83%;height:3px;border:none;border-top:3px double red;positive:absolute;top:600px;"/></center>
+        <center><hr style="margin:0px;padding:0px;width:100%;height:3px;border:none;border-top:3px double black;positive:absolute;top:600px;"/></center>
+
+<div style="position:relative;">
+<fieldset>
+<div id="div_col" class="col-lg-12 col-xs-12 yh">
+<c:forEach var="item" items="${teacherlist}" varStatus="status">
+      <!--span style="word-wrap:break-word;padding-left:50px;padding-right:50px;vertical-align:top;"><a href="findbook.action?title=${item}">${item}</a></span-->
+      <div class="panel" style="word-wrap:break-word;width:100px;min-height:60px;height:auto;vertical-align:top;float:left;padding-right:20px;">
+      <a href="SearchTec.action?search=${item}&username=<s:property value="username" />"><h5 class="head">${item}</h5></a></div>
+</c:forEach>
+</div>
+</fieldset>
+</div>
+
+
 
 </div>
 
-<hr style="margin:0px;padding:0px;">
+</div>
+
 <div id="dht">
 <span style="position:relative;top:15px;left:200px;color:white;">Copyright © 2009 all rights reserved. Power by 上海众臻信息科技有限公司
 Please contact Us : market@sportoa.com
@@ -139,5 +140,7 @@ Tel : 021-54933212
 </div>
 
 </div>
+
 </body>
 </html>
+

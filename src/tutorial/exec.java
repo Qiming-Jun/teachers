@@ -34,7 +34,10 @@ public class exec extends ActionSupport{
 	private String rows;
 	
 	private String search;
-
+	
+	private String fbflag;
+	
+	private String letter;
 
 	/**
 	 * @return the toJsp
@@ -122,7 +125,20 @@ public class exec extends ActionSupport{
 		return search;
 	}
 
+	public void setFbflag(String fbflag) {
+		this.fbflag = fbflag;
+	}
+	public String getFbflag() {
+		return fbflag;
+	}
 
+	public void setLetter(String letter) {
+		this.letter = letter;
+	}
+	public String getLetter() {
+		return letter;
+	}
+	
 
 	
 	public String searchTmp() {
@@ -370,6 +386,38 @@ public class exec extends ActionSupport{
         setStdinf(std);
 
 		return "success";
+	}
+	
+		public String searchTecLetter() {
+		List<String> list= new ArrayList<String>();
+		List<String> list2= new ArrayList<String>();
+    	mysql data = new mysql();
+		char s = letter.toUpperCase().charAt(0);
+    	
+    	String  sql= "select Name  from teacher order by   ELT(INTERVAL(CONV(HEX(left(CONVERT("+"'"+s+"'"+" USING gbk),1)),16,10),"
+    			+"0xB0A1,0xB0C5,0xB2C1,0xB4EE,0xB6EA,0xB7A2,0xB8C1,0xB9FE,0xBBF7,"
+    			+"0xBFA6,0xC0AC,0xC2E8,0xC4C3,0xC5B6,0xC5BE,0xC6DA,0xC8BB,0xC8F6,"
+    			+"0xCBFA,0xCDDA,0xCEF4,0xD1B9,0xD4D1),"
+    			+"'A','B','C','D','E','F','G','H','J','K','L','M','N','O','P',"
+    			+"'Q','R','S','T','W','X','Y','Z') asc";
+    	list = data.select(sql);    	
+    	
+    	for (int i=0;i<list.size();i++){
+    		String s2 = list.get(i);
+    		if(s2.charAt(0) == s){
+    			for (int j=i+1;j<list.size();j++){
+    				if(list.get(j).charAt(0)==s+1) break;
+    				System.out.print(list.get(j));
+    			//	if(list.get(j).length()==3)	list2.add(list.get(j));
+    			//	else list2.add(list.get(j)+"  ");
+    				list2.add(list.get(j));
+    			//	ActionContext.getContext().put("teacherlist", list);
+    			}
+    		}
+    	}
+    	ActionContext.getContext().put("teacherlist", list2);
+    	System.out.print(list2.size());
+    	return "success";
 	}
 	
     public String delete()
