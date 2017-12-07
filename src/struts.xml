@@ -11,7 +11,6 @@
             <result name="TECAHER">/teacher_one.jsp</result>
             <result name="STUDENT">/student_one.jsp</result>
             <result name="error">/login_inter.jsp</result>
-			<result name="Fail">fail.jsp</result>
         </action>
 		<action name="modStu" class="tutorial.exec" method="modStuInf">
             <result name="success">student_information.jsp</result>
@@ -34,17 +33,19 @@
         <action name="helload" class="tutorial.exec" method="modTecInf">
             <result name="success">information_homepage.jsp</result>
         </action>
-
-		 <action name="Search" class="tutorial.exec" method="searchTmp">
-        	<result name="success">search_teacher.jsp</result>
+        <action name="datemod" class="tutorial.exec" method="modDate">
+            <result name="success">datemod</result>
         </action>
-        <action name="SearchTec" class="tutorial.exec" method="searchTec">
-        	<result name="success">teacherinf_forstu.jsp</result>
-        	<result name="Fail">fail.jsp</result>
-        </action>     
-		
-		<action name="lettersearch" class="tutorial.exec" method="searchTecLetter">
+        <action name="weekindex" class="tutorial.exec" method="newWeekDate">
+            <result name="success">information_homepage.jsp</result>
+        </action>
+        <action name="lettersearch" class="tutorial.exec" method="searchTecLetter">
             <result name="success">search_resultone.jsp</result>
+        </action>
+    
+        <action name="weekindex1" class="tutorial.exec" method="newWeekDate1">
+            <result name="success">teacherinf_forstu.jsp</result>
+   
         </action>
     </package>
 </struts>
