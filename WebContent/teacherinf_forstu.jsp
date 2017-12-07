@@ -181,44 +181,7 @@ data-toggle="tab" style="">预约查看</a>
 		</div>
 		
 		
-			<div class="tab-pane" id="panel-206240" style="border:1px solid #000;min-height:200px;height:auto;margin-top:20px;background-color:white;">
-				<table class="table table-striped table-bordered" id="test">
-				 <thead>
-				   <tr>
-					  <td colspan="9" style="height:40px; vertical-align:middle; text-align:center;">
-					   预约教师信息查看表（学生版）：
-					   </td>
-				   </tr>
-				 </thead>
-				 <tbody>
-				   <c:forEach var="item" items="${apptlist1}" varStatus="status">
-						 <tr><td>${item}</td>
-					 <td style="width:70px;"><a href="deleteappt.action?apptInf=${item}&<s:property value="username" />"><button type="button" id="a0">取消预约<tton></a></td>
-					 </tr>
-				  </c:forEach>
-				   </tbody>
-				 </table>
-				   
-				   
-				   <table class="table table-striped table-bordered" id="test">
-					 <thead>
-					   <tr>
-						  <td colspan="9" style="height:40px; vertical-align:middle; text-align:center;">
-						   预约教师已被处理信息查看表（学生版）：
-						   </td>
-					   </tr>
-					 </thead>
-					 <tbody>
-					   <c:forEach var="item" items="${apptlist2}" varStatus="status">
-							 <tr><td>${item}</td>
-						 </tr>
-					  </c:forEach>
-					 </tbody>
-				   </table>
-
-			</div>
-				</div> 
-			</div> 
+		</div> 
 		</div> 
 	</div> 
 </div>

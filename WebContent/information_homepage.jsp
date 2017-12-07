@@ -80,73 +80,6 @@ var save = function(btn){
 	      });*/
 }
 
-var updated = function(element){
-	
-	var myDate = new Date();
-	var zun = myDate.toLocaleDateString();
-//	alert(zun);
-	var vun = parseInt(myDate.getDay());
-	var id = element.id;
-	lun = parseInt(id);
-	zum = parseInt(vun);
-
-//	alert(lun);
-	
-//	alert(zum);
-	
-//	alert(zum+lun);
-	
-	if(zum!=0&&lun<zum){
-		alert("时间已过，禁止修改！");
-	}
-	else{
-		var oldhtml = element.innerHTML;//获得元素之前的内容
-//		alert(element.innerHTML);
-		var newobj = document.createElement('textarea');//创建一个input元素
-		newobj.cols="13";
-		newobj.rows="3";
-		newobj.wrap="hard";
-		newobj.value=element.innerHTML;
-		element.innerHTML = '';   //设置元素内容为空
-		element.appendChild(newobj);//添加子元素
-		newobj.focus();//获得焦点
-		  //设置newobj失去焦点的事件
-		newobj.onblur = function(){
-		   //下面应该判断是否做了修改并使用ajax代码请求服务端将id与修改后的数据提交
-//		  alert(element.id);
-		      //当触发时判断newobj的值是否为空，为空则不修改，并返回oldhtml
-//		  alert(element.innerHTML);
-//		  alert(this.value);
-		  element.innerHTML = this.value ? this.value : "无";
-		  var toJsp = this.value;
-	//	  alert("hello world");
-	//	  alert(this.value);
-	//	  alert(toJsp);
-		  
-		  $.ajax({ 
-	          type:"get",  
-	          url:"datemod.action",  
-	          dataType:"json",  
-	          data:{  
-	             "newdate":toJsp,
-	              "daterows":element.id,
-	              "username":<s:property value="tecinf.teacherId" />,
-		  		  "weeknum":<s:property value="weeknum"/>
-	          },  
-	          success:function(obj){  
-	              console.log(obj)  
-	 //             alert(this.value);
-	          },
-	          
-	      });  
-		  
-		  
-		  
-		   }
-		
-	}
-}
-
 </script>  
 </head>
 <body class="img-circle" background="hitlibx.jpg"style="background-repeat:no-repeat ;background-size:100% 100%; background-attachment:fixed;">
@@ -384,41 +317,6 @@ data-toggle="tab" style="">预约查看</a>
            
            
 						
-					</div>
-	<div class="tab-pane" id="panel-206240" style="border:1px solid #000;min-height:200px;height:auto;margin-top:20px;background-color:white;">
-			<table class="table table-striped table-bordered" id="test">
-				 <thead>
-				   <tr>
-					  <td colspan="9" style="height:40px; vertical-align:middle; text-align:center;">
-					   教师预约信息查看表（教师版）：
-					   </td>
-				   </tr>
-				 </thead>
-			 <tbody>
-			   <c:forEach var="item" items="${apptlist3}" varStatus="status">
-					 <tr><td>${item}</td>
-				 <td style="width:70px;"><a href="tecmodappt.action?agree=0&apptInf=${item}&username=<s:property value="tecinf.teacherId" />"><button type="button" id="a0">同意<tton></a></td>
-				 <td style="width:70px;"><a href="tecmodappt.action?agree=1&apptInf=${item}&username=<s:property value="tecinf.teacherId" />"><button type="button" id="a1">不同意<tton></a></td></tr>
-			  </c:forEach>
-			 </tbody>
-           </table>
-           
-           
-           <table class="table table-striped table-bordered" id="test">
-			 <thead>
-			   <tr>
-				  <td colspan="9" style="height:40px; vertical-align:middle; text-align:center;">
-				   教师预约已处理信息查看表（教师版）：
-				   </td>
-			   </tr>
-			 </thead>
-			 <tbody>
-			   <c:forEach var="item" items="${apptlist4}" varStatus="status">
-					 <tr><td>${item}</td>
-				 </tr>
-			  </c:forEach>
-			   </tbody>
-			</table>
 					</div>
 				</div> 
 			</div> 
