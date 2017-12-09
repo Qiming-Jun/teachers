@@ -100,8 +100,6 @@ System.out.println(character);%-->
             <li><a href="lettersearch.action?letter=z&username=<s:property value="username" />">Z</a></li>
           </ul>
         </div>
-		
-		
 <center><hr style="margin:0px;padding:0px;width:98%;height:3px;border:none;border-top:3px double black;positive:absolute;top:600px;"/></center>
 
 <div class="neirong2_box2_box" style="width:100%;position:relative;top:0px;left:10px;">
