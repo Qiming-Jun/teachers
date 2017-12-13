@@ -24,7 +24,60 @@ html,body{
 }
 .clear{clear:both;}
 </style>
+<script type="text/javascript">
+	var updatedb = function(element){
+		
+		var oldhtml = element.innerHTML;
+//		alert(oldhtml);
+		var myDate = new Date();
+		var zun = myDate.toLocaleDateString();
+	//	alert(zun);
+		var vun = parseInt(myDate.getDay());
+		var id = element.id;
+		var kum = oldhtml.indexOf("课");
+		lun = parseInt(id);
+		zum = parseInt(vun);
 
+	//	alert(lun);
+		
+	//	alert(zum);
+		
+	//	alert(zum+lun);
+		
+//		alert(kum);
+		
+		if(zum!=0&&lun<zum){
+			alert("时间已过，禁止预约！");
+		}
+		else if(kum==-1||oldhtml=="无"){
+			alert("此处为老师私人时间，不能预约！")
+		}
+		else{
+			alert("预约成功，请在预约列表里查看！")
+			  
+			  $.ajax({ 
+				  type:"get",  
+				  url:"reserve.action",  
+				  dataType:"json",  
+				  data:{  
+					  toJsp:$("#toJsp").val(),
+					  "reserverows":element.id,
+					  "TecID":<s:property value="tecinf.teacherId" />,
+					  "username":<s:property value="username" />
+				  },  
+				  success:function(obj){  
+					  console.log(obj)  
+							
+				  },
+			  });  
+			  
+			  
+			  
+			   }
+			
+	}
+
+</script>  
 </head>
 <body class="img-circle" background="hitlibx.jpg"style="background-repeat:no-repeat ;background-size:100% 100%; background-attachment:fixed;">
 

@@ -45,10 +45,14 @@
         <action name="reserve" class="tutorial.exec" method="Reserve">
             <result name="success">student_information.jsp</result>
         </action>
-      
+        <action name="weekindex1" class="tutorial.exec" method="newWeekDate1">
+            <result name="success">teacherinf_forstu.jsp</result>
+        </action>
         <action name="tecmodappt" class="tutorial.exec" method="TecModAppt">
             <result name="success">student_information.jsp</result>
         </action>
-
+        <action name="deleteappt" class="tutorial.exec" method="StuModAppt">
+            <result name="success">teacherinf_forstu.jsp</result>
+        </action>
     </package>
 </struts>

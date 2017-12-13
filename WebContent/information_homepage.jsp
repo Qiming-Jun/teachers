@@ -5,7 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-  
 <html style="height:100%;">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -79,6 +78,73 @@ var save = function(btn){
 	              alert('错误');//弹出错误信息
 	          }
 	      });*/
+}
+
+var updated = function(element){
+	
+	var myDate = new Date();
+	var zun = myDate.toLocaleDateString();
+//	alert(zun);
+	var vun = parseInt(myDate.getDay());
+	var id = element.id;
+	lun = parseInt(id);
+	zum = parseInt(vun);
+
+//	alert(lun);
+	
+//	alert(zum);
+	
+//	alert(zum+lun);
+	
+	if(zum!=0&&lun<zum){
+		alert("时间已过，禁止修改！");
+	}
+	else{
+		var oldhtml = element.innerHTML;//获得元素之前的内容
+//		alert(element.innerHTML);
+		var newobj = document.createElement('textarea');//创建一个input元素
+		newobj.cols="13";
+		newobj.rows="3";
+		newobj.wrap="hard";
+		newobj.value=element.innerHTML;
+		element.innerHTML = '';   //设置元素内容为空
+		element.appendChild(newobj);//添加子元素
+		newobj.focus();//获得焦点
+		  //设置newobj失去焦点的事件
+		newobj.onblur = function(){
+		   //下面应该判断是否做了修改并使用ajax代码请求服务端将id与修改后的数据提交
+//		  alert(element.id);
+		      //当触发时判断newobj的值是否为空，为空则不修改，并返回oldhtml
+//		  alert(element.innerHTML);
+//		  alert(this.value);
+		  element.innerHTML = this.value ? this.value : "无";
+		  var toJsp = this.value;
+	//	  alert("hello world");
+	//	  alert(this.value);
+	//	  alert(toJsp);
+		  
+		  $.ajax({ 
+	          type:"get",  
+	          url:"datemod.action",  
+	          dataType:"json",  
+	          data:{  
+	             "newdate":toJsp,
+	              "daterows":element.id,
+	              "username":<s:property value="tecinf.teacherId" />,
+		  		  "weeknum":<s:property value="weeknum"/>
+	          },  
+	          success:function(obj){  
+	              console.log(obj)  
+	 //             alert(this.value);
+	          },
+	          
+	      });  
+		  
+		  
+		  
+		   }
+		
+	}
 }
 
 </script>  

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <html style="height:100%;">
 <head>
@@ -94,7 +94,7 @@ System.out.println(character);%-->
 	          <input type=submit value="搜  索" class="sousuoanniu" style="width:50px;height:auto;font-size:inherit;position:relative;top:-5px;"></input>
 	        </form>
         </div>
-		<div class="neirong2_box2_box" style="width:70%;position:relative;top:35px;">
+        <div class="neirong2_box2_box" style="width:70%;position:relative;top:35px;">
           <span>姓氏字母： </span>
           <ul>
             <li><a href="lettersearch.action?letter=a&username=<s:property value="username" />">A</a></li>

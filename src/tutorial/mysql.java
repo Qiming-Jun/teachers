@@ -14,9 +14,14 @@ import java.sql.Connection;
 
 public class mysql {
     private String dbDriver="com.mysql.jdbc.Driver";   
-    private String dbUrl="jdbc:mysql://localhost:3306/TeacherManage?characterEncoding=utf8";//����ʵ������仯  
-    private String dbUser="root";  
-    private String dbPass="";
+ //   private String dbUrl="jdbc:mysql://localhost:3306/TeacherManage?characterEncoding=utf8";//����ʵ������仯  
+//    private String dbUser="root";  
+//    private String dbPass="";
+    
+    private String dbUrl="jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_projectofswl?characterEncoding=utf8"; 
+ 
+    private String dbUser="j303x5ojo4";  
+    private String dbPass="2zyx5y53451hk33y05h5hkz3i3hmimjh3izx2kjj";
     
     public Connection getConn() 
     {  
